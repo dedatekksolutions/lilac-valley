@@ -19,16 +19,19 @@ body {
     background-color: var(--earthy-beige);
 }
 
-/* Sticky header styling */
+/* Updated Sticky header styling */
 .sticky-header {
     position: sticky;
     top: 0;
     width: 100%;
     background-color: rgba(217, 203, 180, 0.9); /* Earthy Beige with slight transparency */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    padding: 10px 20px;
-    backdrop-filter: blur(5px); /* Optional: add blur effect for readability */
+    padding: 10px 40px; /* Increased horizontal padding for better spacing */
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Header content styling */
@@ -36,27 +39,59 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 /* Logo styling */
 .logo {
-    height: 100px;
+    height: 80px; /* Adjusted size for better alignment */
     width: auto;
-    opacity: 0.8; /* Adjust opacity for semi-transparent logo */
+    opacity: 0.8;
+    margin-right: 20px; /* Space between logo and navigation */
 }
 
-/* Navigation links */
+/* Navigation styling */
+.navigation {
+    display: flex;
+    gap: 30px; /* Consistent spacing between navigation links */
+    flex: 1; /* Makes the navigation take up the remaining space */
+    justify-content: center; /* Center aligns navigation links */
+}
+
 .navigation a {
-    margin: 0 15px;
-    color: rgba(85, 107, 47, 0.8); /* Olive Green with some transparency */
+    color: rgba(85, 107, 47, 0.8);
     text-decoration: none;
     font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 .navigation a:hover {
-    color: rgba(85, 107, 47, 1); /* Full opacity Olive Green on hover */
+    color: rgba(85, 107, 47, 1);
+}
+
+/* Book Now button styling */
+.book-now {
+    background-color: var(--sunset-gold);
+    color: var(--forest-brown);
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    outline: none;
+    margin-left: 20px; /* Space between navigation links and button */
+}
+
+.book-now:hover {
+    background-color: rgba(227, 168, 87, 1);
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Hero section styling */
@@ -89,7 +124,7 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: var(--sunset-gold); /* Sunset Gold for call-to-action */
+    background-color: var(--sunset-gold);
     color: var(--forest-brown);
     padding: 10px 20px;
     border: none;
@@ -98,19 +133,11 @@ body {
     transition: all 0.2s ease-in-out;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     outline: none;
 }
 
 .book-now:hover {
-    background-color: rgba(227, 168, 87, 1); /* Full opacity Sunset Gold on hover */
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Remove focus and click effects */
-.book-now:focus,
-.book-now:active {
     background-color: rgba(227, 168, 87, 1);
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
@@ -121,39 +148,63 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    background-color: var(--forest-brown); /* Forest Brown for rustic feel */
-    position: relative;
-}
-
-/* Gallery container to limit the height to 2/3 of the viewport */
-.gallery {
-    width: 100%;
-    max-width: 800px;
-    height: 66vh; /* 2/3 of the viewport height */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    margin: 20px 0; /* Creates a gap between images as you scroll */
-    border-radius: 10px;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--forest-brown);
     overflow: hidden;
+    padding: 20px;
 }
 
-/* Gallery text overlay styling */
-.gallery p {
-    font-size: 1.2rem;
-    color: var(--earthy-beige);
-    text-align: center;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: rgba(75, 61, 48, 0.7); /* Forest Brown overlay for readability */
-    border-radius: 5px;
+/* Container for the main gallery and thumbnails */
+.gallery-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+}
+
+/* Main gallery image styling */
+.gallery-main {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    position: relative;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-main p {
     position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%; /* Make overlay span most of the gallery width */
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(75, 61, 48, 0.7);
+    color: var(--earthy-beige);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+/* Thumbnail grid styling */
+.gallery-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.gallery-thumbnails img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-thumbnails img:hover {
+    transform: scale(1.05);
 }
 
 /* Footer styling */
@@ -181,4 +232,388 @@ footer p {
 /* Debug outline (do not modify) */
 .debug-outline * {
     outline: 1px solid red !important;
+}
+
+
+/* About Us Section Styling */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--forest-brown);
+    padding: 60px 20px;
+}
+
+.about-content {
+    max-width: 800px;
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    line-height: 1.6;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--warm-clay);
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: var(--forest-brown);
+}
+
+/* Contact Us Section Styling */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--forest-brown);
+    padding: 60px 20px;
+}
+
+.contact-content {
+    max-width: 600px;
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    line-height: 1.6;
+}
+
+.contact-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--warm-clay);
+}
+
+.contact-content p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.contact-content a {
+    color: var(--olive-green);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-content a:hover {
+    text-decoration: underline;
+}
+
+/* Bookings Section Styling */
+.booking-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--forest-brown);
+    padding: 60px 20px;
+}
+
+.booking-content {
+    max-width: 600px;
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    line-height: 1.6;
+}
+
+.booking-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--warm-clay);
+}
+
+/* Form styling */
+.booking-content form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.booking-content label {
+    font-size: 1rem;
+    color: var(--forest-brown);
+}
+
+.booking-content input[type="date"],
+.booking-content input[type="number"],
+.booking-content select,
+.booking-content textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--soft-gray);
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1rem;
+    color: var(--forest-brown);
+}
+
+.booking-content input[type="date"]:focus,
+.booking-content input[type="number"]:focus,
+.booking-content select:focus,
+.booking-content textarea:focus {
+    outline: none;
+    border-color: var(--warm-clay);
+    box-shadow: 0 0 5px rgba(216, 138, 86, 0.3);
+}
+
+.booking-content textarea {
+    resize: vertical;
+}
+
+/* Submit Button styling */
+.booking-content button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: var(--sunset-gold);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.booking-content button[type="submit"]:hover {
+    background-color: rgba(227, 168, 87, 1);
+}
+
+/* Main gallery container */
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Main image styling */
+.gallery-main {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    width: 100%;
+    height: 500px; /* Set a consistent height for the main image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.gallery-main p {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(75, 61, 48, 0.7);
+    color: var(--earthy-beige);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+/* Thumbnail box styling */
+.thumbnail-box {
+    background-color: var(--forest-brown);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Thumbnail grid styling */
+.gallery-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Thumbnail images */
+.gallery-thumbnails img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-thumbnails img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery-main {
+        height: 400px;
+    }
+
+    .gallery-thumbnails {
+        grid-template-columns: repeat(4, 1fr); /* Adjusts the number of columns on smaller screens */
+    }
+}
+
+/* General section styling for consistent width */
+.section-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.section-content {
+    width: 100%;
+    max-width: 700px; /* Adjusted max-width */
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    line-height: 1.6;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between elements */
+}
+
+/* Headings for Contact Us and Bookings */
+.section-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--warm-clay);
+}
+
+/* Contact Us Styling */
+.contact-section .section-content {
+    text-align: left;
+}
+
+.contact-section p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.contact-section a {
+    color: var(--olive-green);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+/* Bookings Section Styling */
+.booking-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--forest-brown);
+    padding: 60px 20px;
+}
+
+.booking-content {
+    max-width: 700px;
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.booking-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--warm-clay);
+}
+
+/* Form styling */
+.booking-content form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 20px;
+    align-items: center;
+}
+
+/* Label styling */
+.booking-content label {
+    font-size: 1rem;
+    color: var(--forest-brown);
+    grid-column: span 1;
+}
+
+/* Input styling for text, email, phone, date, number, and textarea fields */
+.booking-content input[type="text"],
+.booking-content input[type="email"],
+.booking-content input[type="tel"],
+.booking-content input[type="date"],
+.booking-content input[type="number"],
+.booking-content input[type="text"],
+.booking-content textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--soft-gray);
+    border-radius: 5px;
+    background-color: rgba(217, 203, 180, 0.2); /* Light beige with slight transparency */
+    font-size: 1rem;
+    color: var(--forest-brown);
+}
+
+/* Full-width inputs */
+.booking-content input[type="text"],
+.booking-content input[type="email"],
+.booking-content input[type="tel"],
+.booking-content textarea {
+    grid-column: span 2;
+}
+
+/* Textarea styling */
+.booking-content textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Button styling */
+.booking-content button[type="submit"] {
+    grid-column: span 2;
+    padding: 12px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: var(--sunset-gold);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.booking-content button[type="submit"]:hover {
+    background-color: rgba(227, 168, 87, 1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .booking-content form {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-content label,
+    .booking-content input,
+    .booking-content select,
+    .booking-content textarea,
+    .booking-content button {
+        grid-column: span 1;
+    }
 }
