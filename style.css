@@ -1,10 +1,10 @@
 :root {
-    --earthy-beige: #d9cbb4;
-    --warm-clay: #d88a56;
-    --olive-green: #556b2f;
-    --forest-brown: #4b3d30;
-    --soft-gray: #b0b0b0;
-    --sunset-gold: #e3a857;
+    --earthy-beige: #d9cbb4; /* Earthy Beige */
+    --warm-clay: #d88a56; /* Warm Clay */
+    --olive-green: #556b2f; /* Olive Green */
+    --forest-brown: #4b3d30; /* Forest Brown */
+    --soft-gray: #b0b0b0; /* Soft Gray */
+    --sunset-gold: #e3a857; /* Sunset Gold */
 }
 
 * {
@@ -24,11 +24,11 @@ body {
     position: sticky;
     top: 0;
     width: 100%;
-    background-color: rgba(217, 203, 180, 0.9);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(217, 203, 180, 0.9); /* Earthy Beige with slight transparency */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
     z-index: 1000;
     padding: 10px 20px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); /* Optional: add blur effect for readability */
 }
 
 /* Header content styling */
@@ -44,25 +44,25 @@ body {
 .logo {
     height: 100px;
     width: auto;
-    opacity: 0.8;
+    opacity: 0.8; /* Adjust opacity for semi-transparent logo */
 }
 
 /* Navigation links */
 .navigation a {
     margin: 0 15px;
-    color: rgba(85, 107, 47, 0.8);
+    color: rgba(85, 107, 47, 0.8); /* Olive Green with some transparency */
     text-decoration: none;
     font-weight: bold;
 }
 
 .navigation a:hover {
-    color: rgba(85, 107, 47, 1);
+    color: rgba(85, 107, 47, 1); /* Full opacity Olive Green on hover */
 }
 
 /* Hero section styling */
 .hero {
     position: relative;
-    height: 100vh;
+    height: 500px;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -89,7 +89,7 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: var(--sunset-gold);
+    background-color: var(--sunset-gold); /* Sunset Gold for call-to-action */
     color: var(--forest-brown);
     padding: 10px 20px;
     border: none;
@@ -98,12 +98,12 @@ body {
     transition: all 0.2s ease-in-out;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
     outline: none;
 }
 
 .book-now:hover {
-    background-color: rgba(227, 168, 87, 1);
+    background-color: rgba(227, 168, 87, 1); /* Full opacity Sunset Gold on hover */
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
@@ -116,40 +116,44 @@ body {
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Gallery section styling for full screen */
+/* Gallery section styling */
 .gallery-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-    width: 100vw; /* Full viewport width */
+    padding: 20px;
+    background-color: var(--forest-brown); /* Forest Brown for rustic feel */
     position: relative;
-    overflow: hidden;
 }
 
+/* Gallery container to limit the height to 2/3 of the viewport */
 .gallery {
     width: 100%;
-    height: 100%; /* Full height of the viewport */
+    max-width: 800px;
+    height: 66vh; /* 2/3 of the viewport height */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+    margin: 20px 0; /* Creates a gap between images as you scroll */
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 /* Gallery text overlay styling */
 .gallery p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--earthy-beige);
     text-align: center;
     margin: 10px 0;
     padding: 10px;
-    background-color: rgba(75, 61, 48, 0.7);
+    background-color: rgba(75, 61, 48, 0.7); /* Forest Brown overlay for readability */
     border-radius: 5px;
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
+    width: 90%; /* Make overlay span most of the gallery width */
 }
 
 /* Footer styling */
