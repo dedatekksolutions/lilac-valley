@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #333;
+}
+
+/* Sticky header styling */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0); /* 30% opacity for a subtle overlay effect */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    z-index: 1000; /* Make sure it stays on top */
+    padding: 10px 20px;
+    backdrop-filter: blur(5px); /* Optional: add blur effect for readability */
+}
+
+/* Header content styling */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo styling */
+.logo {
+    height: 100px; /* Adjust size as needed */
+    width: auto;
+    opacity: 0.8; /* Adjust opacity for semi-transparent logo */
+}
+
+/* Navigation links */
+.navigation a {
+    margin: 0 15px;
+    color: rgba(255, 255, 255, 0.8); /* Semi-transparent text */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navigation a:hover {
+    color: rgba(255, 255, 255, 1); /* Fully opaque on hover for contrast */
+}
+
+
+/* Hero section styling */
+.hero {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 20px; /* Prevent content from being too close to header */
+}
+
+/* @keyframes slide {
+    0%, 20% { background-image: url('images/hero/hero1.jpg'); }
+    25%, 45% { background-image: url('images/hero/hero2.jpg'); }
+    50%, 70% { background-image: url('images/hero/hero3.jpg'); }
+    75%, 95% { background-image: url('images/hero/hero4.jpg'); }
+} */
+
+.hero h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px #000;
+    width: 80%;
+}
+
+.book-now {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(128, 0, 0, 0.8); /* Darker background with some opacity */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+    outline: none; /* Remove default focus styling */
+}
+
+/* Hover effect */
+.book-now:hover {
+    background-color: rgba(128, 0, 0, 1); /* Full opacity on hover */
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Slightly reduced shadow on hover */
+}
+
+/* Remove any focus, active, or click effects */
+.book-now:focus,
+.book-now:active {
+    background-color: rgba(128, 0, 0, 1); /* Keep full opacity */
+    transform: translate(2px, 2px); /* Retain pressed effect */
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #222;
+    position: relative;
+}
+
+.hero {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    animation: slide 20s infinite;
+}
+
+.gallery {
+    width: 100%;
+    max-width: 800px;
+    height: 300px;  /* Adjust height as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.gallery p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+}
+
+footer nav {
+    margin-top: 20px;
+}
+
+footer nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+.debug-outline * {
+    outline: 1px solid red !important;
+}
