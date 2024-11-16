@@ -19,7 +19,7 @@ body {
     background-color: var(--earthy-beige);
 }
 
-/* Updated Sticky header styling */
+/* Sticky header styling */
 .sticky-header {
     position: sticky;
     top: 0;
@@ -27,7 +27,7 @@ body {
     background-color: rgba(217, 203, 180, 0.9); /* Earthy Beige with slight transparency */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    padding: 10px 40px; /* Increased horizontal padding for better spacing */
+    padding: 10px 20px; /* Increased horizontal padding for better spacing */
     backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
@@ -38,10 +38,9 @@ body {
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Center align items horizontally */
+    position: relative; /* For positioning child elements like the hamburger menu */
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 /* Logo styling */
@@ -52,13 +51,7 @@ body {
     margin-right: 20px; /* Space between logo and navigation */
 }
 
-/* Navigation styling */
-.navigation {
-    display: flex; /* Always visible */
-    gap: 30px; /* Consistent spacing between navigation links */
-    flex: 1;
-    justify-content: center; /* Center aligns navigation links */
-}
+
 
 .navigation a {
     color: rgba(85, 107, 47, 0.8);
@@ -76,9 +69,12 @@ body {
 
 /* Book Now button styling */
 .book-now {
+    position: absolute;
+    top: 20px;
+    right: 10px; /* Align symmetrically with hamburger menu */
     background-color: var(--sunset-gold);
     color: var(--forest-brown);
-    padding: 10px 20px;
+    padding: 10px 15px; /* Adjust padding to balance the vertical layout */
     border: none;
     font-size: 1rem;
     cursor: pointer;
@@ -87,13 +83,28 @@ body {
     border-radius: 5px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     outline: none;
-    margin-left: 20px; /* Space between navigation links and button */
+    display: flex;
+    flex-direction: column; /* Stack the text vertically */
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2; /* Add some spacing between the stacked text */
+    text-align: center;
 }
 
 .book-now:hover {
     background-color: rgba(227, 168, 87, 1);
     transform: translate(2px, 2px);
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .book-now {
+        width: 70px; /* Set a fixed width to stack text */
+        white-space: normal; /* Allow text to wrap and stack */
+        padding: 10px; /* Adjust padding for smaller button size */
+        font-size: 0.9rem; /* Slightly smaller font */
+    }
 }
 
 /* Hero section styling */
@@ -119,30 +130,6 @@ body {
     font-size: 2rem;
     text-shadow: 2px 2px 5px var(--forest-brown);
     width: 80%;
-}
-
-/* Book Now button styling */
-.book-now {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: var(--sunset-gold);
-    color: var(--forest-brown);
-    padding: 10px 20px;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    outline: none;
-}
-
-.book-now:hover {
-    background-color: rgba(227, 168, 87, 1);
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Gallery section styling */
@@ -739,7 +726,7 @@ button[type="submit"]:hover {
     cursor: pointer;
     z-index: 1100; /* Higher than other elements */
     position: absolute; /* Position it within the header */
-    left: 20px; /* Align to the far left */
+    left: 10px; /* Align to the far left */
     top: 50%; /* Center vertically in the header */
     transform: translateY(-50%);
     padding: 0; /* Remove any padding */
@@ -771,7 +758,6 @@ button[type="submit"]:hover {
     flex-direction: column;
     background-color: var(--earthy-beige);
     position: fixed; /* Make it fixed to slide in/out */
-    top: 0;
     left: -100%; /* Start off-screen to the left */
     height: 100vh; /* Full height */
     width: 300px; /* Sidebar width */
@@ -779,18 +765,15 @@ button[type="submit"]:hover {
     z-index: 1000;
     transition: left 0.3s ease; /* Smooth slide-in effect */
     padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
 }
 
 .navigation.show {
     left: 0; /* Slide into view */
 }
 
-/* Adjust width for larger screens */
-@media (min-width: 1024px) {
-    .navigation {
-        width: 400px; /* Adjust for larger screens */
-    }
-}
 
 /* Sidebar navigation links */
 .navigation a {
