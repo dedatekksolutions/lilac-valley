@@ -81,14 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById("menu-toggle");
     const navigation = document.querySelector(".navigation");
     const overlay = document.createElement("div");
+    const navigationLinks = document.querySelectorAll(".navigation a"); // Select all navigation links
 
     // Add overlay to the body
     overlay.classList.add("overlay");
     document.body.appendChild(overlay);
 
     if (menuToggle && navigation) {
+        // Toggle the menu and overlay visibility
         menuToggle.addEventListener("click", () => {
-            // Toggle the menu and overlay visibility
             navigation.classList.toggle("show");
             overlay.classList.toggle("show");
             menuToggle.classList.toggle("active");
@@ -100,9 +101,19 @@ document.addEventListener("DOMContentLoaded", () => {
             overlay.classList.remove("show");
             menuToggle.classList.remove("active");
         });
+
+        // Close menu when clicking on any navigation link
+        navigationLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                navigation.classList.remove("show");
+                overlay.classList.remove("show");
+                menuToggle.classList.remove("active");
+            });
+        });
     } else {
         console.error("Menu toggle button or navigation element not found.");
     }
 });
+
 
 
