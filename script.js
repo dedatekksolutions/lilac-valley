@@ -80,18 +80,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById("menu-toggle");
     const navigation = document.querySelector(".navigation");
+    const overlay = document.createElement("div");
 
-    // Check if elements exist
+    // Add overlay to the body
+    overlay.classList.add("overlay");
+    document.body.appendChild(overlay);
+
     if (menuToggle && navigation) {
         menuToggle.addEventListener("click", () => {
-            // Toggle the 'show' class on the navigation menu
+            // Toggle the menu and overlay visibility
             navigation.classList.toggle("show");
-
-            // Optional: Toggle a class on the hamburger menu for animations
+            overlay.classList.toggle("show");
             menuToggle.classList.toggle("active");
+        });
+
+        // Close menu when clicking on the overlay
+        overlay.addEventListener("click", () => {
+            navigation.classList.remove("show");
+            overlay.classList.remove("show");
+            menuToggle.classList.remove("active");
         });
     } else {
         console.error("Menu toggle button or navigation element not found.");
     }
 });
+
 

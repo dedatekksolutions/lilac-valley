@@ -765,28 +765,58 @@ button[type="submit"]:hover {
     background-color: var(--warm-clay); /* Change color on hover */
 }
 
-/* Navigation menu hidden by default */
+/* Default hidden sidebar */
 .navigation {
-    display: none;
-    flex-direction: column; /* Stack items vertically */
+    display: flex; /* Ensure it can display flex items */
+    flex-direction: column;
     background-color: var(--earthy-beige);
-    position: absolute;
-    top: 100%; /* Position it just below the header */
-    left: 0;
-    width: 100%; /* Full width */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Make it fixed to slide in/out */
+    top: 0;
+    left: -100%; /* Start off-screen to the left */
+    height: 100vh; /* Full height */
+    width: 300px; /* Sidebar width */
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
     z-index: 1000;
+    transition: left 0.3s ease; /* Smooth slide-in effect */
+    padding: 20px;
 }
 
-/* Show navigation menu when the 'show' class is toggled */
 .navigation.show {
-    display: flex; /* Make it visible */
+    left: 0; /* Slide into view */
 }
 
-/* Optional: Add a smooth transition for visibility */
-.navigation {
-    transition: max-height 0.3s ease;
+/* Adjust width for larger screens */
+@media (min-width: 1024px) {
+    .navigation {
+        width: 400px; /* Adjust for larger screens */
+    }
 }
+
+/* Sidebar navigation links */
+.navigation a {
+    margin: 20px 0; /* Space between links */
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+
+/* Overlay for dimming background */
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Below the menu but above content */
+}
+
+/* Show overlay when menu is open */
+.overlay.show {
+    display: block;
+}
+
 
 
 /* Rotate and cross animation for the hamburger menu */
