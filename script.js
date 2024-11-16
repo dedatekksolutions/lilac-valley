@@ -115,5 +115,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+//Book now click handler
+document.addEventListener("DOMContentLoaded", () => {
+    const bookNowButton = document.querySelector(".book-now");
 
-
+    if (bookNowButton) {
+        bookNowButton.addEventListener("click", () => {
+            // Example action: Scroll to the bookings section
+            const bookingSection = document.getElementById("bookings");
+            if (bookingSection) {
+                bookingSection.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    } else {
+        console.error("Book Now button not found.");
+    }
+});

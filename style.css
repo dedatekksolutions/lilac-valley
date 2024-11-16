@@ -13,6 +13,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling globally */
+}
+
 body {
     font-family: Arial, sans-serif;
     color: var(--soft-gray);
@@ -47,11 +51,19 @@ body {
 .logo {
     height: 80px; /* Adjusted size for better alignment */
     width: auto;
-    opacity: 0.8;
-    margin-right: 20px; /* Space between logo and navigation */
+    opacity: 0.6;
 }
 
+/* Style for the logo link */
+.logo-link {
+    display: inline-block; /* Ensure link wraps around the image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation for the hover effect */
+}
 
+.logo-link:hover {
+    transform: translateY(-5px) scale(1.05); /* Moves up and slightly enlarges */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
 
 .navigation a {
     color: rgba(85, 107, 47, 0.8);
@@ -104,6 +116,12 @@ body {
         white-space: normal; /* Allow text to wrap and stack */
         padding: 10px; /* Adjust padding for smaller button size */
         font-size: 0.9rem; /* Slightly smaller font */
+    }
+
+    .book-now:hover {
+        background-color: rgba(227, 168, 87, 1);
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -799,8 +817,6 @@ button[type="submit"]:hover {
 .overlay.show {
     display: block;
 }
-
-
 
 /* Rotate and cross animation for the hamburger menu */
 .hamburger-menu.active span:nth-child(1) {
