@@ -75,3 +75,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const navigation = document.querySelector(".navigation");
+
+    menuToggle.addEventListener("click", () => {
+        navigation.classList.toggle("show"); // Toggle the 'show' class
+    });
+});
+
