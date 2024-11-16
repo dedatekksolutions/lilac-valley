@@ -81,7 +81,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById("menu-toggle");
     const navigation = document.querySelector(".navigation");
 
-    menuToggle.addEventListener("click", () => {
-        navigation.classList.toggle("show"); // Toggle the 'show' class
-    });
+    // Check if elements exist
+    if (menuToggle && navigation) {
+        menuToggle.addEventListener("click", () => {
+            // Toggle the 'show' class on the navigation menu
+            navigation.classList.toggle("show");
+
+            // Optional: Toggle a class on the hamburger menu for animations
+            menuToggle.classList.toggle("active");
+        });
+    } else {
+        console.error("Menu toggle button or navigation element not found.");
+    }
 });
+

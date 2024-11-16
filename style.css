@@ -72,13 +72,6 @@ body {
     color: rgba(85, 107, 47, 1);
 }
 
-/* Remove responsive menu hiding behavior */
-@media (max-width: 665px) {
-    .navigation {
-        display: flex; /* Ensure navigation is always displayed */
-        flex-direction: row; /* Keep links inline even at smaller screens */
-    }
-}
 
 
 /* Book Now button styling */
@@ -734,3 +727,79 @@ button[type="submit"]:hover {
     }
 }
 
+/* Hamburger Menu Styling */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px; /* Width of the hamburger button */
+    height: 20px; /* Height of the entire button */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100; /* Higher than other elements */
+    position: absolute; /* Position it within the header */
+    left: 20px; /* Align to the far left */
+    top: 50%; /* Center vertically in the header */
+    transform: translateY(-50%);
+    padding: 0; /* Remove any padding */
+}
+
+/* Hamburger Menu Spans (Dashes) */
+.hamburger-menu span {
+    display: block;
+    height: 3px; /* Thickness of each dash */
+    width: 100%; /* Full width of the button */
+    background-color: var(--forest-brown); /* Color of the dashes */
+    border-radius: 2px; /* Slightly rounded edges for a modern look */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ensure spacing between the dashes */
+.hamburger-menu span + span {
+    margin-top: 4px; /* Space between each dash */
+}
+
+/* Hover Effect for Hamburger Menu */
+.hamburger-menu:hover span {
+    background-color: var(--warm-clay); /* Change color on hover */
+}
+
+/* Navigation menu hidden by default */
+.navigation {
+    display: none;
+    flex-direction: column; /* Stack items vertically */
+    background-color: var(--earthy-beige);
+    position: absolute;
+    top: 100%; /* Position it just below the header */
+    left: 0;
+    width: 100%; /* Full width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Show navigation menu when the 'show' class is toggled */
+.navigation.show {
+    display: flex; /* Make it visible */
+}
+
+/* Optional: Add a smooth transition for visibility */
+.navigation {
+    transition: max-height 0.3s ease;
+}
+
+
+/* Rotate and cross animation for the hamburger menu */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: var(--warm-clay);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0; /* Hide the middle bar */
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    background-color: var(--warm-clay);
+}
