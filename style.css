@@ -54,9 +54,9 @@ body {
 
 /* Navigation styling */
 .navigation {
-    display: flex;
+    display: flex; /* Always visible */
     gap: 30px; /* Consistent spacing between navigation links */
-    flex: 1; /* Makes the navigation take up the remaining space */
+    flex: 1;
     justify-content: center; /* Center aligns navigation links */
 }
 
@@ -71,6 +71,15 @@ body {
 .navigation a:hover {
     color: rgba(85, 107, 47, 1);
 }
+
+/* Remove responsive menu hiding behavior */
+@media (max-width: 665px) {
+    .navigation {
+        display: flex; /* Ensure navigation is always displayed */
+        flex-direction: row; /* Keep links inline even at smaller screens */
+    }
+}
+
 
 /* Book Now button styling */
 .book-now {
@@ -725,79 +734,3 @@ button[type="submit"]:hover {
     }
 }
 
-/* General styles */
-.logo-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    transition: transform 0.2s ease-in-out;
-}
-
-.logo-button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-
-.navigation {
-    display: flex;
-    gap: 30px;
-}
-
-.navigation a {
-    color: rgba(85, 107, 47, 0.8);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.navigation a:hover {
-    color: rgba(85, 107, 47, 1);
-}
-
-/* Responsive menu styling */
-@media (max-width: 665px) {
-    .navigation {
-        display: none; /* Hide the navigation by default */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: var(--earthy-beige);
-        width: 100%;
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-    }
-
-    .navigation a {
-        padding: 10px;
-        text-align: center;
-        font-size: 1.2rem;
-    }
-
-    .navigation.show {
-        display: flex; /* Show the menu when toggled */
-    }
-
-    .logo-button {
-        position: relative;
-    }
-
-    .logo {
-        width: 50px;
-        height: auto;
-        border: 2px solid rgba(85, 107, 47, 0.8);
-        border-radius: 50%;
-        padding: 5px;
-        transition: all 0.3s ease;
-    }
-
-    .logo:hover {
-        border-color: var(--sunset-gold);
-    }
-}

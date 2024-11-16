@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+// Toggle navigation menu visibility
 document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById("menu-toggle");
     const navigation = document.querySelector(".navigation");
@@ -84,4 +85,3 @@ document.addEventListener("DOMContentLoaded", () => {
         navigation.classList.toggle("show"); // Toggle the 'show' class
     });
 });
-
