@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let galleryImages = [];
 
     try {
-        const response = await fetch('http://ec2-3-80-195-148.compute-1.amazonaws.com:8080/gallery-images'); // Update to your Flask API
+        const response = await fetch('http://ec2-54-160-225-229.compute-1.amazonaws.com:8080/gallery-images'); // Update to your Flask API
         galleryImages = await response.json();
     } catch (error) {
         console.error("Error fetching gallery images:", error);

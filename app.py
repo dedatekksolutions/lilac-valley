@@ -29,13 +29,26 @@ def list_gallery_images():
     gallery_prefix = "images/gallery/"
     gallery_images = []
 
-    # List objects in the "images/gallery/" directory
-    response = s3_client.list_objects_v2(Bucket=S3_BUCKET, Prefix=gallery_prefix)
-    for obj in response.get('Contents', []):
-        if obj['Key'].endswith(('.jpg', '.png', '.webp')):  # Filter image files
-            gallery_images.append(f"{S3_BASE_URL}/{obj['Key']}")
+    try:
+        # Fetch objects from S3
+        response = s3_client.list_objects_v2(Bucket=S3_BUCKET, Prefix=gallery_prefix)
+        print("S3 Response:", response)  # Debugging
+
+        # Check if the Contents key exists
+        if 'Contents' in response:
+            for obj in response['Contents']:
+                if obj['Key'].endswith(('.jpg', '.png', '.webp')):  # Filter for images
+                    gallery_images.append(f"{S3_BASE_URL}/{obj['Key']}")
+        else:
+            print("No images found in the specified directory.")
+
+    except Exception as e:
+        # Print the error for debugging
+        print("Error while accessing S3:", str(e))
+        return jsonify({"error": "Failed to fetch gallery images", "details": str(e)}), 500
 
     return jsonify(gallery_images)
+
 
 # Serve the main HTML file
 @app.route('/')
