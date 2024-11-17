@@ -37,9 +37,15 @@ def list_gallery_images():
 
     return jsonify(gallery_images)
 
+# Serve the main HTML file
 @app.route('/')
 def serve_index():
     return send_from_directory(app.static_folder, 'index.html')
+
+# Serve other static files (CSS, JS, images, etc.)
+@app.route('/<path:filename>')
+def serve_static_files(filename):
+    return send_from_directory(app.static_folder, filename)
 
 
 if __name__ == '__main__':
