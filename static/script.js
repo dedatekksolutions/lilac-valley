@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Fetch the list of hero images from the server
     try {
-        const response = await fetch('http://127.0.0.1:8000/hero-images');
+        const response = await fetch('http://<EC2_PUBLIC_IP>:8080/hero-images'); // Update to your Flask API
         heroImages = await response.json();
 
         if (heroImages.length > 0) {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let galleryImages = [];
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/gallery-images');
+        const response = await fetch('http://<EC2_PUBLIC_IP>:8080/gallery-images'); // Update to your Flask API
         galleryImages = await response.json();
     } catch (error) {
         console.error("Error fetching gallery images:", error);
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-//Book now click handler
+// Book now click handler
 document.addEventListener("DOMContentLoaded", () => {
     const bookNowButton = document.querySelector(".book-now");
 
