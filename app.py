@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 import boto3
 
 app = Flask(__name__)
@@ -39,7 +39,8 @@ def list_gallery_images():
 
 @app.route('/')
 def serve_index():
-    return "<h1>Welcome to Lilac Valley</h1><p>The site is dynamically fetching images from S3!</p>"
+    return send_from_directory(app.static_folder, 'index.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
