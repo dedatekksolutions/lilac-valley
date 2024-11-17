@@ -1,16 +1,45 @@
-from flask import Flask, send_from_directory
+from flask import Flask, jsonify
+import boto3
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
+
+# Configure AWS credentials and S3 bucket name
+S3_BUCKET = "lilac-valley-images"
+S3_REGION = "us-east-1"
+S3_BASE_URL = f"https://{S3_BUCKET}.s3.{S3_REGION}.amazonaws.com"
+
+# Initialize S3 client
+s3_client = boto3.client('s3')
+
+@app.route('/hero-images')
+def list_hero_images():
+    hero_prefix = "images/hero/"
+    hero_images = []
+
+    # List objects in the "images/hero/" directory
+    response = s3_client.list_objects_v2(Bucket=S3_BUCKET, Prefix=hero_prefix)
+    for obj in response.get('Contents', []):
+        if obj['Key'].endswith(('.jpg', '.png', '.webp')):  # Filter image files
+            hero_images.append(f"{S3_BASE_URL}/{obj['Key']}")
+
+    return jsonify(hero_images)
+
+@app.route('/gallery-images')
+def list_gallery_images():
+    gallery_prefix = "images/gallery/"
+    gallery_images = []
+
+    # List objects in the "images/gallery/" directory
+    response = s3_client.list_objects_v2(Bucket=S3_BUCKET, Prefix=gallery_prefix)
+    for obj in response.get('Contents', []):
+        if obj['Key'].endswith(('.jpg', '.png', '.webp')):  # Filter image files
+            gallery_images.append(f"{S3_BASE_URL}/{obj['Key']}")
+
+    return jsonify(gallery_images)
 
 @app.route('/')
 def serve_index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return "<h1>Welcome to Lilac Valley</h1><p>The site is dynamically fetching images from S3!</p>"
 
-# Route to serve other static files (like CSS, JS, images)
-@app.route('/<path:filename>')
-def serve_static(filename):
-    return send_from_directory(app.static_folder, filename)
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
-
