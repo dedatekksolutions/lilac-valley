@@ -7,7 +7,7 @@ app = Flask(__name__, static_folder='.')
 
 # S3 bucket details
 S3_BUCKET_NAME = 'lilac-valley-images'
-S3_BUCKET_URL = f'https://{S3_BUCKET_NAME}.s3.amazonaws.com'
+S3_BUCKET_URL = f'https://{S3_BUCKET_NAME}.us-east-1.amazonaws.com.com'
 
 # Initialize the S3 client
 s3_client = boto3.client('s3')
