@@ -49,7 +49,7 @@ body {
 
 /* Logo styling */
 .logo {
-    height: 80px; /* Adjusted size for better alignment */
+    height: 80px; 
     width: auto;
     opacity: 0.6;
 }
@@ -174,7 +174,7 @@ body {
 /* Main gallery image styling */
 .gallery-main {
     background-size: contain; /* Change from cover to contain */
-    background-repeat: no-repeat; /* Prevent image tiling */
+    background-repeat: no-repeat; 
     background-position: center; /* Keep the image centered */
     border-radius: 10px;
     width: 100%;

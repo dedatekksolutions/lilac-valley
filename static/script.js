@@ -1,6 +1,6 @@
 // Wait until the DOM content is fully loaded before running the script
 document.addEventListener("DOMContentLoaded", async () => {
-    let slideIndex = 0; // Initialize the slide index to track the current image in the hero slideshow
+    let slideIndex = 0; // Initialize the slide index 
     let heroImages = []; // Array to hold the URLs of hero images
 
     // Helper function to shuffle the array for random image order
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Fetch the list of hero images from the server
     try {
-        const response = await fetch('http://ec2-54-160-225-229.compute-1.amazonaws.com:8080/hero-images'); // Update to your Flask API
+        const response = await fetch('http://ec2-54-160-225-229.compute-1.amazonaws.com:8080/hero-images'); // Update to Flask API
         heroImages = await response.json();
 
         if (heroImages.length > 0) {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let galleryImages = [];
 
     try {
-        const response = await fetch('http://ec2-54-160-225-229.compute-1.amazonaws.com:8080/gallery-images'); // Update to your Flask API
+        const response = await fetch('http://ec2-54-160-225-229.compute-1.amazonaws.com:8080/gallery-images'); // Update to Flask API
         galleryImages = await response.json();
     } catch (error) {
         console.error("Error fetching gallery images:", error);
