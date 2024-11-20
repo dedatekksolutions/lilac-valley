@@ -320,12 +320,10 @@ footer p:last-of-type {
 
 .about-section ul {
     list-style-type: none;
-    padding-left: 0; /* Optional: removes default padding */
-    margin-left: 0; /* Optional: removes default margin */
 }
 
 .about-section li {
-    margin-bottom: 10px; /* Adds spacing between items */
+    margin-bottom: 10px; 
 }
 
 
