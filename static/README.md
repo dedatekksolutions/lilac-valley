@@ -65,7 +65,7 @@ A responsive single-page website for **Lilac Valley Farm Stay**, designed as par
    
 
 4. **Set AWS Credentials**:
-   Ensure your AWS CLI is configured with the credentials that have access to the S3 bucket.
+   Ensure AWS CLI is configured with the credentials that have access to the S3 bucket.
    
    aws configure
    
@@ -122,7 +122,7 @@ Ensure port 8080 is open in the EC2 security group settings.
 
 ### Access the Website
 
-Use the public IP of your EC2 instance, e.g., `http://<ec2-public-ip>:8080`.
+Use the public IP of EC2 instance, e.g., `http://<ec2-public-ip>:8080`.
 
 ---
 
@@ -134,21 +134,21 @@ Use the public IP of your EC2 instance, e.g., `http://<ec2-public-ip>:8080`.
    
 
 2. **Test Gunicorn**:
-   Run Gunicorn manually to ensure it works with your Flask app:
+   Run Gunicorn manually to ensure it works with Flask app:
    
    gunicorn -w 4 -b 0.0.0.0:8080 app:app
    
-   - `-w 4`: Number of worker processes (adjust based on your instance’s CPU).
+   - `-w 4`: Number of worker processes (adjust based on instance’s CPU).
    - `-b 0.0.0.0:8080`: Binds the app to port 8080 and allows access from external IPs.
 
 3. **Access the Website**:
-   Use your EC2 instance's public IP or DNS, e.g., `http://<ec2-public-ip>:8080`.
+   Use EC2 instance's public IP or DNS, e.g., `http://<ec2-public-ip>:8080`.
 
 ---
 
 ## **Optional: Running Flask with Gunicorn as a Systemd Service**
 
-To ensure your Flask app starts automatically on boot using Gunicorn:
+To ensure Flask app starts automatically on boot using Gunicorn:
 
 1. **Create a Systemd Service File**:
    
@@ -171,8 +171,6 @@ To ensure your Flask app starts automatically on boot using Gunicorn:
    WantedBy=multi-user.target
    
 
-   - Replace `/home/ubuntu/` with your actual EC2 instance’s directory structure.
-
 3. **Enable and Start the Service**:
    
    sudo systemctl enable flaskapp
@@ -189,7 +187,7 @@ To ensure your Flask app starts automatically on boot using Gunicorn:
    sudo systemctl daemon-reload
    
 
-The service will now ensure your Flask app runs in the background, restarts on boot, and listens on port 8080.
+The service will now ensure Flask app runs in the background, restarts on boot, and listens on port 8080.
 
 ---
 
