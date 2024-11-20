@@ -1,10 +1,10 @@
 :root {
-    --earthy-beige: #d9cbb4; /* Base background color */
-    --warm-clay: #d88a56; /* Warm accent tone */
-    --olive-green: #556b2f; /* Green for highlights */
-    --forest-brown: #4b3d30; /* Dark brown for contrast */
-    --soft-gray: #b0b0b0; /* Neutral gray for text */
-    --sunset-gold: #e3a857; /* Golden highlight color */
+    --earthy-beige: #d9cbb4; /* Earthy Beige */
+    --warm-clay: #d88a56; /* Warm Clay */
+    --olive-green: #556b2f; /* Olive Green */
+    --forest-brown: #4b3d30; /* Forest Brown */
+    --soft-gray: #b0b0b0; /* Soft Gray */
+    --sunset-gold: #e3a857; /* Sunset Gold */
 }
 
 * {
@@ -14,7 +14,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Enable smooth scrolling globally */
+    scroll-behavior: smooth; /* Enables smooth scrolling globally */
 }
 
 body {
@@ -23,90 +23,109 @@ body {
     background-color: var(--earthy-beige);
 }
 
-/* Sticky header for navigation */
+/* Sticky header styling */
 .sticky-header {
     position: sticky;
     top: 0;
     width: 100%;
-    background-color: rgba(217, 203, 180, 0.9);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(217, 203, 180, 0.9); /* Earthy Beige with slight transparency */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Increased horizontal padding for better spacing */
+    backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+/* Header content styling */
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    justify-content: center; /* Center align items horizontally */
+    position: relative; /* For positioning child elements like the hamburger menu */
     width: 100%;
 }
 
-/* Logo styles */
+/* Logo styling */
 .logo {
-    height: 80px;
+    height: 80px; 
     width: auto;
     opacity: 0.6;
 }
 
+/* Style for the logo link */
 .logo-link {
-    display: inline-block;
-    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block; /* Ensure link wraps around the image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation for the hover effect */
 }
 
 .logo-link:hover {
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-5px) scale(1.05); /* Moves up and slightly enlarges */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Navigation links */
 .navigation a {
     color: rgba(85, 107, 47, 0.8);
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .navigation a:hover {
     color: rgba(85, 107, 47, 1);
 }
 
-/* "Book Now" button */
+
+
+/* Book Now button styling */
 .book-now {
     position: absolute;
     top: 20px;
-    right: 10px;
+    right: 10px; /* Align symmetrically with hamburger menu */
     background-color: var(--sunset-gold);
     color: var(--forest-brown);
-    padding: 10px 15px;
+    padding: 10px 15px; /* Adjust padding to balance the vertical layout */
     border: none;
     font-size: 1rem;
     cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
+    transition: all 0.2s ease-in-out;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    outline: none;
+    display: flex;
+    flex-direction: column; /* Stack the text vertically */
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2; /* Add some spacing between the stacked text */
+    text-align: center;
 }
 
 .book-now:hover {
     background-color: rgba(227, 168, 87, 1);
     transform: translate(2px, 2px);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Adjustments for smaller screens */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .book-now {
-        width: 70px;
-        padding: 10px;
-        font-size: 0.9rem;
+        width: 70px; /* Set a fixed width to stack text */
+        white-space: normal; /* Allow text to wrap and stack */
+        padding: 10px; /* Adjust padding for smaller button size */
+        font-size: 0.9rem; /* Slightly smaller font */
+    }
+
+    .book-now:hover {
+        background-color: rgba(227, 168, 87, 1);
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     }
 }
 
-/* Hero section */
+/* Hero section styling */
 .hero {
     position: relative;
     height: 500px;
@@ -118,6 +137,7 @@ body {
     color: var(--earthy-beige);
     text-align: center;
     font-size: 2rem;
+    padding-top: 20px;
 }
 
 .hero h1 {
@@ -127,152 +147,694 @@ body {
     transform: translate(-50%, -50%);
     font-size: 2rem;
     text-shadow: 2px 2px 5px var(--forest-brown);
+    width: 80%;
 }
 
-/* Gallery section */
+/* Gallery section styling */
 .gallery-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    padding: 20px;
+    height: auto;
+    width: 100%; /* Stretch to parent width */
     background-color: var(--forest-brown);
+    overflow: hidden;
+    padding: 20px;
 }
 
+/* Container for the main gallery and thumbnails */
+.gallery-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Main image and thumbnails */
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Main gallery image styling */
 .gallery-main {
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-size: contain; /* Change from cover to contain */
+    background-repeat: no-repeat; 
+    background-position: center; /* Keep the image centered */
     border-radius: 10px;
     width: 100%;
-    height: 500px;
+    height: 500px; /* Maintain the same height */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
     margin-bottom: 20px;
 }
 
+
+.gallery-main img {
+    width: 100%; /* Fit the container's width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image is fully visible without cropping */
+    border-radius: 10px;
+}
+
+
+/* Thumbnail box styling */
 .thumbnail-box {
     width: 100%;
-    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
     background-color: var(--forest-brown);
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Thumbnail grid styling */
 .gallery-thumbnails {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusted for scaling */
     gap: 10px;
+    width: 100%;
+    padding: 10px;
 }
 
+/* Thumbnail images */
 .gallery-thumbnails img {
     width: 100%;
     height: auto;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
 }
 
 .gallery-thumbnails img:hover {
     transform: scale(1.05);
 }
 
-/* Footer */
+
+/* Footer styling */
 footer {
+    width: 100%;
+    max-width: 1200px; /* Match max-width with other sections */
+    margin: 0 auto; /* Center the footer content */
+    background-color: var(--forest-brown); /* Cohesive background color */
+    color: var(--earthy-beige); /* High-contrast text color */
+    padding: 40px 20px; /* Comfortable padding */
+    border-top: 2px solid rgba(255, 255, 255, 0.1); /* Optional top divider */
+    text-align: center;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between elements */
+}
+
+footer nav {
+    margin-bottom: 20px; /* Space below navigation links */
+}
+
+footer nav a {
+    color: var(--sunset-gold); /* Highlight navigation links */
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px; /* Space between links */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+footer nav a:hover {
+    color: var(--soft-gray); /* Slightly muted hover color */
+}
+
+footer p {
+    font-size: 0.9rem; /* Slightly smaller text for less prominence */
+    color: rgba(255, 255, 255, 0.8); /* Muted text for subtlety */
+}
+
+footer p:last-of-type {
+    margin-top: 20px; /* Separate the copyright disclaimer */
+    font-size: 0.8rem; /* Make the disclaimer even smaller */
+    color: rgba(255, 255, 255, 0.6); /* Subtle contrast for less focus */
+}
+
+@media (max-width: 768px) {
+    footer {
+        text-align: left; /* Align to left for smaller screens */
+    }
+
+    footer nav {
+        display: flex;
+        flex-wrap: wrap; /* Wrap links on smaller screens */
+        justify-content: center; /* Center align links */
+        gap: 10px;
+    }
+
+    footer p:last-of-type {
+        font-size: 0.7rem; /* Further reduce size on small screens */
+    }
+}
+
+/* About Us Section Styling */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--forest-brown);
-    color: var(--earthy-beige);
-    padding: 40px 20px;
+    padding: 60px 20px;
+}
+
+.about-content {
+    max-width: 800px;
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     text-align: center;
     line-height: 1.6;
 }
 
-footer nav {
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--warm-clay);
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: var(--forest-brown);
+}
+
+.about-section ul {
+    list-style-type: none;
+}
+
+.about-section li {
+    margin-bottom: 10px; 
+}
+
+
+/* Contact Us Section Styling */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--forest-brown);
+    padding: 60px 20px;
+}
+
+.contact-content {
+    max-width: 600px;
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    line-height: 1.6;
+}
+
+.contact-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--warm-clay);
+}
+
+.contact-content p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.contact-content a {
+    color: var(--olive-green);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-content a:hover {
+    text-decoration: underline;
+}
+
+/* Booking Section */
+.booking-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--forest-brown);
+    padding: 60px 20px;
+}
+
+.booking-content {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+/* Form Layout */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Align Labels and Inputs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--forest-brown);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--soft-gray);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--forest-brown);
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus States */
+input:focus,
+textarea:focus {
+    border-color: var(--warm-clay);
+    box-shadow: 0 0 5px rgba(216, 138, 86, 0.5);
+    outline: none;
+}
+
+/* Full-width Fields */
+textarea {
+    grid-column: span 2;
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    grid-column: span 2;
+    padding: 12px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: var(--sunset-gold);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: rgba(227, 168, 87, 1);
+    transform: translateY(-2px);
+}
+
+/* Responsive Form Adjustment */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr; /* Stack all fields vertically */
+    }
+
+    textarea {
+        grid-column: span 1; /* Adjust textarea to match new grid layout */
+    }
+
+    button[type="submit"] {
+        grid-column: span 1; /* Center-align the submit button */
+    }
+}
+
+
+/* Main gallery container */
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Main image styling */
+.gallery-main {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    width: 100%;
+    height: 500px; /* Set a consistent height for the main image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
     margin-bottom: 20px;
 }
 
-footer nav a {
-    color: var(--sunset-gold);
+.gallery-main p {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(75, 61, 48, 0.7);
+    color: var(--earthy-beige);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+/* Thumbnail box styling */
+.thumbnail-box {
+    background-color: var(--forest-brown);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Thumbnail grid styling */
+.gallery-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Thumbnail images */
+.gallery-thumbnails img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-thumbnails img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery-main {
+        height: 400px;
+    }
+
+    .gallery-thumbnails {
+        grid-template-columns: repeat(4, 1fr); /* Adjusts the number of columns on smaller screens */
+    }
+}
+
+/* General section styling for consistent width */
+.section-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.section-content {
+    width: 90%; /* Match gallery width */
+    max-width: 1200px; /* Match gallery max-width */
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    line-height: 1.6;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between elements */
+}
+
+/* Headings for Contact Us and Bookings */
+.section-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--warm-clay);
+}
+
+/* Contact Section Styling */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--forest-brown);
+    padding: 60px 20px;
+}
+
+.contact-content {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 40px; /* Added sufficient padding */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center align the text */
+    line-height: 1.8;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    overflow-wrap: break-word; /* Prevents text overflow */
+}
+
+.contact-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--warm-clay);
+}
+
+.contact-content p {
+    font-size: 1rem;
+    margin: 10px 0; /* Add margin between elements */
+    word-wrap: break-word; /* Prevent long words from overflowing */
+    text-align: center;
+}
+
+.contact-content a {
+    color: var(--olive-green);
     text-decoration: none;
     font-weight: bold;
-    margin: 0 10px;
 }
 
-footer nav a:hover {
-    color: var(--soft-gray);
+.contact-content a:hover {
+    text-decoration: underline;
+    color: var(--warm-clay);
 }
 
-footer p {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .contact-content h2 {
+        font-size: 1.8rem; /* Adjust heading size for smaller screens */
+    }
+
+    .contact-content p {
+        font-size: 0.9rem; /* Adjust text size for smaller screens */
+    }
 }
 
-/* Hamburger menu */
+
+/* Bookings Section Styling */
+.booking-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--forest-brown);
+    padding: 60px 20px;
+}
+
+.booking-content {
+    max-width: 700px;
+    background-color: var(--earthy-beige);
+    color: var(--forest-brown);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.booking-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--warm-clay);
+}
+
+/* Form styling */
+.booking-content form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 20px;
+    align-items: center;
+}
+
+/* Label styling */
+.booking-content label {
+    font-size: 1rem;
+    color: var(--forest-brown);
+    grid-column: span 1;
+}
+
+/* Input styling for text, email, phone, date, number, and textarea fields */
+.booking-content input[type="text"],
+.booking-content input[type="email"],
+.booking-content input[type="tel"],
+.booking-content input[type="date"],
+.booking-content input[type="number"],
+.booking-content input[type="text"],
+.booking-content textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--soft-gray);
+    border-radius: 5px;
+    background-color: rgba(217, 203, 180, 0.2); /* Light beige with slight transparency */
+    font-size: 1rem;
+    color: var(--forest-brown);
+}
+
+/* Full-width inputs */
+.booking-content input[type="text"],
+.booking-content input[type="email"],
+.booking-content input[type="tel"],
+.booking-content textarea {
+    grid-column: span 2;
+}
+
+/* Textarea styling */
+.booking-content textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Button styling */
+.booking-content button[type="submit"] {
+    grid-column: span 2;
+    padding: 12px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: var(--sunset-gold);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.booking-content button[type="submit"]:hover {
+    background-color: rgba(227, 168, 87, 1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .booking-content form {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-content label,
+    .booking-content input,
+    .booking-content select,
+    .booking-content textarea,
+    .booking-content button {
+        grid-column: span 1;
+    }
+}
+
+/* Hamburger Menu Styling */
 .hamburger-menu {
     display: flex;
     flex-direction: column;
-    width: 30px;
-    height: 20px;
-    position: absolute;
-    left: 10px;
-    top: 50%;
+    justify-content: space-between;
+    width: 30px; /* Width of the hamburger button */
+    height: 20px; /* Height of the entire button */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100; /* Higher than other elements */
+    position: absolute; /* Position it within the header */
+    left: 10px; /* Align to the far left */
+    top: 50%; /* Center vertically in the header */
     transform: translateY(-50%);
+    padding: 0; /* Remove any padding */
 }
 
+/* Hamburger Menu Spans (Dashes) */
 .hamburger-menu span {
     display: block;
-    height: 3px;
-    width: 100%;
-    background-color: var(--forest-brown);
-    margin-top: 4px;
+    height: 3px; /* Thickness of each dash */
+    width: 100%; /* Full width of the button */
+    background-color: var(--forest-brown); /* Color of the dashes */
+    border-radius: 2px; /* Slightly rounded edges for a modern look */
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Sidebar navigation */
+/* Ensure spacing between the dashes */
+.hamburger-menu span + span {
+    margin-top: 4px; /* Space between each dash */
+}
+
+/* Hover Effect for Hamburger Menu */
+.hamburger-menu:hover span {
+    background-color: var(--warm-clay); /* Change color on hover */
+}
+
+/* Default hidden sidebar */
 .navigation {
-    display: flex;
+    display: flex; /* Ensure it can display flex items */
     flex-direction: column;
     background-color: var(--earthy-beige);
-    position: fixed;
-    left: -100%;
-    height: 100vh;
-    width: 300px;
+    position: fixed; /* Make it fixed to slide in/out */
+    left: -100%; /* Start off-screen to the left */
+    height: 100vh; /* Full height */
+    width: 300px; /* Sidebar width */
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
     z-index: 1000;
-    transition: left 0.3s ease;
+    transition: left 0.3s ease; /* Smooth slide-in effect */
     padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
 }
 
 .navigation.show {
-    left: 0;
+    left: 0; /* Slide into view */
 }
 
-/* Sidebar links */
+
+/* Sidebar navigation links */
 .navigation a {
-    margin: 20px 0;
+    margin: 20px 0; /* Space between links */
     text-align: left;
     font-size: 1.2rem;
 }
 
-/* Overlay */
+
+/* Overlay for dimming background */
 .overlay {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Below the menu but above content */
 }
 
+/* Show overlay when menu is open */
 .overlay.show {
     display: block;
 }
 
-/* Hamburger menu animations */
+/* Rotate and cross animation for the hamburger menu */
 .hamburger-menu.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
     background-color: var(--warm-clay);
 }
 
 .hamburger-menu.active span:nth-child(2) {
-    opacity: 0;
+    opacity: 0; /* Hide the middle bar */
 }
 
 .hamburger-menu.active span:nth-child(3) {
