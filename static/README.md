@@ -2,7 +2,7 @@
 
 # Lilac Valley Farm Stay Website
 
-A responsive single-page website for **Lilac Valley Farm Stay**, designed as part of a university project. The website showcases the charm of Lilac Valley Farm Stay, with sections for a hero banner, about information, gallery, bookings, and contact details. The website is fully responsive and meets the specified project requirements.
+A responsive single-page website for **Lilac Valley Farm Stay**, designed as part of a university project. The website showcases the charm of Lilac Valley Farm Stay, with sections for a hero banner, about information, gallery, bookings, and contact details. 
 
 ---
 
@@ -48,30 +48,30 @@ A responsive single-page website for **Lilac Valley Farm Stay**, designed as par
 ### Installation
 
 1. **Clone the Repository**:
-   bash
-   git clone https://github.com/lil.merce/lilac-valley.git
+   
+   git clone git@github.com:merceiato/lilac-valley.git
    cd lilac-valley
    
 
 2. **Set Up a Virtual Environment**:
-   bash
+   
    python3 -m venv myenv
    source myenv/bin/activate
    
 
 3. **Install Dependencies**:
-   bash
+   
    pip install -r requirements.txt
    
 
 4. **Set AWS Credentials**:
-   Ensure your AWS CLI is configured with the credentials that have access to the S3 bucket.
-   bash
+   Ensure AWS CLI is configured with the credentials that have access to the S3 bucket.
+   
    aws configure
    
 
 5. **Run the Application**:
-   bash
+   
    python app.py
    
    The website will be available at `http://127.0.0.1:8080`.
@@ -104,7 +104,7 @@ lilac-valley/
 
 1. Launch an EC2 instance with Ubuntu.
 2. Install required dependencies:
-   bash
+   
    sudo apt update
    sudo apt install python3 python3-venv python3-pip -y
    
@@ -112,7 +112,7 @@ lilac-valley/
 
 ### Run the Flask Application
 
-bash
+
 sudo python3 app.py
 
 
@@ -122,36 +122,36 @@ Ensure port 8080 is open in the EC2 security group settings.
 
 ### Access the Website
 
-Use the public IP of your EC2 instance, e.g., `http://<ec2-public-ip>:8080`.
+Use the public IP of EC2 instance, e.g., `http://<ec2-public-ip>:8080`.
 
 ---
 
 ## **Using Gunicorn for Production**
 
 1. **Install Gunicorn**:
-   bash
+   
    pip install gunicorn
    
 
 2. **Test Gunicorn**:
-   Run Gunicorn manually to ensure it works with your Flask app:
-   bash
+   Run Gunicorn manually to ensure it works with Flask app:
+   
    gunicorn -w 4 -b 0.0.0.0:8080 app:app
    
-   - `-w 4`: Number of worker processes (adjust based on your instance’s CPU).
+   - `-w 4`: Number of worker processes (adjust based on instance’s CPU).
    - `-b 0.0.0.0:8080`: Binds the app to port 8080 and allows access from external IPs.
 
 3. **Access the Website**:
-   Use your EC2 instance's public IP or DNS, e.g., `http://<ec2-public-ip>:8080`.
+   Use EC2 instance's public IP or DNS, e.g., `http://<ec2-public-ip>:8080`.
 
 ---
 
 ## **Optional: Running Flask with Gunicorn as a Systemd Service**
 
-To ensure your Flask app starts automatically on boot using Gunicorn:
+To ensure Flask app starts automatically on boot using Gunicorn:
 
 1. **Create a Systemd Service File**:
-   bash
+   
    sudo nano /etc/systemd/system/flaskapp.service
    
 
@@ -171,25 +171,23 @@ To ensure your Flask app starts automatically on boot using Gunicorn:
    WantedBy=multi-user.target
    
 
-   - Replace `/home/ubuntu/` with your actual EC2 instance’s directory structure.
-
 3. **Enable and Start the Service**:
-   bash
+   
    sudo systemctl enable flaskapp
    sudo systemctl start flaskapp
    
 
 4. **Check Service Status**:
-   bash
+   
    sudo systemctl status flaskapp
    
 
 5. **Reload Systemd** (if any changes are made to the service file):
-   bash
+   
    sudo systemctl daemon-reload
    
 
-The service will now ensure your Flask app runs in the background, restarts on boot, and listens on port 8080.
+The service will now ensure Flask app runs in the background, restarts on boot, and listens on port 8080.
 
 ---
 

@@ -318,6 +318,15 @@ footer p:last-of-type {
     color: var(--forest-brown);
 }
 
+.about-section ul {
+    list-style-type: none;
+}
+
+.about-section li {
+    margin-bottom: 10px; 
+}
+
+
 /* Contact Us Section Styling */
 .contact-section {
     display: flex;
