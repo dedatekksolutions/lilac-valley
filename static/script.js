@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Fetch the list of hero images from the server
     try {
-        const response = await fetch('http://ec2-54-160-225-229.compute-1.amazonaws.com:8080/hero-images'); // Update to Flask API
+        const response = await fetch('http://ec2-54-90-122-196.compute-1.amazonaws.com:8080/hero-images'); // Update to Flask API
         heroImages = await response.json();
 
         if (heroImages.length > 0) {
